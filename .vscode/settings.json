@@ -1,0 +1,22 @@
+{
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "window.autoDetectColorScheme": false,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#048349",
+    "statusBar.noFolderBackground": "#1abf64",
+    "titleBar.activeBackground": "#027136"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "prettier.requireConfig": true,
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "files.associations": {
+    "*.pcss": "css"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  }
+}
