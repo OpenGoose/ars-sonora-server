@@ -1,9 +1,5 @@
-import { Prisma, PrismaClient } from '@prisma/client';
-import { DefaultArgs } from '@prisma/client/runtime/library';
+import { Transaction } from '@types-ts/database/transaction.type';
 
 export interface RepositoryOptions {
-  transaction?: Omit<
-    PrismaClient<Prisma.PrismaClientOptions, never, DefaultArgs>,
-    '$connect' | '$disconnect' | '$on' | '$transaction' | '$use' | '$extends'
-  >;
+  transaction?: Transaction;
 }

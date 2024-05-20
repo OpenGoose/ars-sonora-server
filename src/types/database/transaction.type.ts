@@ -1,7 +1,5 @@
-import { Prisma, PrismaClient } from '@prisma/client';
-import { DefaultArgs } from '@prisma/client/runtime/library';
+import { DatabaseService } from '@database/database.service';
 
-export type Transaction = Omit<
-  PrismaClient<Prisma.PrismaClientOptions, never, DefaultArgs>,
-  '$connect' | '$disconnect' | '$on' | '$transaction' | '$use' | '$extends'
->;
+export type Transaction = Parameters<
+  Parameters<DatabaseService['db']['transaction']>[0]
+>[0];

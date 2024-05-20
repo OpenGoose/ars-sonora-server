@@ -13,10 +13,8 @@ export class UserRepository extends Repository {
     { login }: { login: string },
     options?: RepositoryOptions,
   ) {
-    return await this.query(options).user.findUnique({
-      where: {
-        login,
-      },
+    return await this.query(options).query.users.findFirst({
+      where: (users, { eq }) => eq(users.login, login),
     });
   }
 }
