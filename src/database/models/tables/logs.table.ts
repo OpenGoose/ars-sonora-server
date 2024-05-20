@@ -12,5 +12,5 @@ export const logsTable = pgTable('logs', {
   createdAt: timestampsDBColumns.createdAt,
 
   // Associations
-  //userId: uuid('user_id').references(() => usersTable.id),
+  userId: uuid('user_id').references(() => usersTable.id),
 });
