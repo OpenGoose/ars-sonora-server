@@ -1,11 +1,9 @@
-import { usersTable } from '@database/models/tables/users.table';
+import { TABLES_DEFINITION } from '@database/models/tables-definition';
 import { neon } from '@neondatabase/serverless';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Env } from '@types-ts/core/env/env.type';
 import { drizzle, NeonHttpDatabase } from 'drizzle-orm/neon-http';
-
-export const TABLES_DEFINITION = { users: usersTable };
 
 @Injectable()
 export class DatabaseService {
