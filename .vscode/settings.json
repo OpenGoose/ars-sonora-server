@@ -10,9 +10,6 @@
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
   "prettier.requireConfig": true,
-  "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma"
-  },
   "files.associations": {
     "*.pcss": "css"
   },
