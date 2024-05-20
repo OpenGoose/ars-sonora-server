@@ -1,16 +1,18 @@
 import { TABLES_DEFINITION } from '@database/models/tables-definition';
-import { neon } from '@neondatabase/serverless';
+import { Pool } from '@neondatabase/serverless';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Env } from '@types-ts/core/env/env.type';
-import { drizzle, NeonHttpDatabase } from 'drizzle-orm/neon-http';
+import { drizzle, NeonDatabase } from 'drizzle-orm/neon-serverless';
 
 @Injectable()
 export class DatabaseService implements OnModuleInit {
-  public readonly db: NeonHttpDatabase<typeof TABLES_DEFINITION>;
+  public readonly db: NeonDatabase<typeof TABLES_DEFINITION>;
   constructor(readonly configService: ConfigService) {
-    const sql = neon((configService.get('database') as Env['database']).url);
-    this.db = drizzle(sql, { schema: TABLES_DEFINITION, logger: true });
+    const pool = new Pool({
+      connectionString: (configService.get('database') as Env['database']).url,
+    });
+    this.db = drizzle(pool, { schema: TABLES_DEFINITION, logger: true });
   }
 
   async onModuleInit() {
