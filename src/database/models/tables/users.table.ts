@@ -11,7 +11,7 @@ export const usersTable = pgTable('users', {
 
   // Auth
   login: varchar('login', { length: 16 }).notNull().unique(),
-  password: varchar('password', { length: 256 }),
+  password: varchar('password', { length: 256 }).notNull(),
 
   // Contacting
   email: varchar('email', { length: 64 }).unique(),
